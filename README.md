@@ -1,7 +1,7 @@
 # Employee_Management_System
 
 
-![image](https://github.com/user-attachments/assets/2a80a5ca-3b01-4eca-b5f5-cb6abf35e921)
+![image](https://github.com/user-attachments/assets/64d7bea0-7171-4f02-87f7-60b2c25429c2)
 
 
 The Employee Management System is a web application built using Spring Boot, Thymeleaf, and Spring Data JPA. This system allows you to perform CRUD (Create, Read, Update, Delete) operations on employee records. It provides a simple interface to manage employees within an organization.
