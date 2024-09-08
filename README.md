@@ -5,7 +5,7 @@
 
 The Employee Management System is a web application built using Spring Boot, Thymeleaf, and Spring Data JPA. This system follows the Model-View-Controller (MVC) architecture to perform CRUD (Create, Read, Update, Delete) operations on employee records. It provides an organized and efficient way to manage employees within an organization.
 
-## Features
+## Features 
 
 - **Create Employee**: Add new employees to the system.
 - **Read Employee**: View a list of all employees and individual employee details.
