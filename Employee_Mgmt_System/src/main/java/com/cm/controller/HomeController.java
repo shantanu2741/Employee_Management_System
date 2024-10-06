@@ -18,38 +18,46 @@ import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
-public class HomeController {
+public class HomeController 
+{
 
 	@Autowired
 	private EmpService empService;
 
 	@GetMapping("/")
-	public String index(Model m) {
+	public String index(Model m) 
+	{
 		List<Employee> list = empService.getAllEmp();
 		m.addAttribute("empList", list);
 		return "index";
 	}
 
 	@GetMapping("/loadEmpSave")
-	public String loadEmpSave() {
+	public String loadEmpSave() 
+	{
 		return "emp_save";
 	}
 
 	@GetMapping("/EditEmp/{id}")
-	public String EditEmp(@PathVariable int id, Model m) {
+	public String EditEmp(@PathVariable int id, Model m) 
+	{
 		Employee emp = empService.getEmpById(id);
 		m.addAttribute("emp", emp);
 		return "edit_emp";
 	}
 
 	@PostMapping("/saveEmp")
-	public String saveEmp(@ModelAttribute Employee emp, HttpSession session) {
+	public String saveEmp(@ModelAttribute Employee emp, HttpSession session) 
+	{
 
 		Employee newEmp = empService.saveEmp(emp);
 
-		if (newEmp != null) {
+		if (newEmp != null) 
+		{
 			session.setAttribute("msg", "Register sucessfully");
-		} else {
+		}
+		else 
+		{
 			session.setAttribute("msg", "something wrong on server");
 		}
 
@@ -57,13 +65,17 @@ public class HomeController {
 	}
 
 	@PostMapping("/updateEmpDtls")
-	public String updateEmp(@ModelAttribute Employee emp, HttpSession session) {
+	public String updateEmp(@ModelAttribute Employee emp, HttpSession session) 
+	{
 
 		Employee updateEmp = empService.saveEmp(emp);
 
-		if (updateEmp != null) {
+		if (updateEmp != null) 
+		{
 			session.setAttribute("msg", "Update sucessfully");
-		} else {
+		} 
+		else 
+		{
 			session.setAttribute("msg", "something wrong on server");
 		}
 
@@ -71,11 +83,15 @@ public class HomeController {
 	}
 
 	@GetMapping("/deleteEmp/{id}")
-	public String loadEmpSave(@PathVariable int id, HttpSession session) {
+	public String loadEmpSave(@PathVariable int id, HttpSession session) 
+	{
 		boolean f = empService.deleteEmp(id);
-		if (f) {
+		if (f) 
+		{
 			session.setAttribute("msg", "Delete sucessfully");
-		} else {
+		} 
+		else 
+		{
 			session.setAttribute("msg", "something wrong on server");
 		}
 		return "redirect:/";
