@@ -16,39 +16,46 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Service
-public class EmpServiceImpl implements EmpService {
+public class EmpServiceImpl implements EmpService 
+{
 
 	@Autowired
 	private EmpRepository empRepo;
 
 	@Override
-	public Employee saveEmp(Employee emp) {
+	public Employee saveEmp(Employee emp) 
+	{
 		Employee newEmp = empRepo.save(emp);
 		return newEmp;
 	}
 
 	@Override
-	public List<Employee> getAllEmp() {
+	public List<Employee> getAllEmp() 
+	{
 
 		return empRepo.findAll();
 	}
 
 	@Override
-	public Employee getEmpById(int id) {
+	public Employee getEmpById(int id) 
+	{
 		return empRepo.findById(id).get();
 	}
 
 	@Override
-	public boolean deleteEmp(int id) {
+	public boolean deleteEmp(int id) 
+	{
 		Employee emp = empRepo.findById(id).get();
-		if (emp != null) {
+		if (emp != null) 
+		{
 			empRepo.delete(emp);
 			return true;
 		}
 		return false;
 	}
 
-	public void removeSessionMessage() {
+	public void removeSessionMessage() 
+	{
 		HttpSession session = ((ServletRequestAttributes) (RequestContextHolder.getRequestAttributes())).getRequest()
 				.getSession();
 
